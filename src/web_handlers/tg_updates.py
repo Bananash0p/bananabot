@@ -1,12 +1,11 @@
 import secrets
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import aiohttp.web
 import orjson
 from aiogram import Bot, Dispatcher, types
-from aiohttp import web
-
 from aiogram_bot_template.data import config
+from aiohttp import web
 
 if TYPE_CHECKING:
     import aiojobs

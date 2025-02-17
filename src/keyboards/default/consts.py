@@ -9,7 +9,6 @@ from aiogram.types import (
     ReplyKeyboardMarkup,
     WebAppInfo,
 )
-
 from aiogram_bot_template import exceptions
 from aiogram_bot_template.keyboards.keyboard_utils import schema_generator
 
