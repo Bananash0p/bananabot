@@ -1,5 +1,6 @@
 from collections.abc import Sequence
-from types import MappingProxyType
+from types import MappingProxyType, 
+from typing import TypeAlias
 
 from aiogram.types import (
     KeyboardButton,
@@ -12,7 +13,7 @@ from aiogram.types import (
 from aiogram_bot_template import exceptions
 from aiogram_bot_template.keyboards.keyboard_utils import schema_generator
 
-POSSIBLE_BUTTON_PROPERTIES_VALUES = (  # https://core.telegram.org/bots/api#keyboardbutton
+POSSIBLE_BUTTON_PROPERTIES_VALUES: TypeAlias = (  # https://core.telegram.org/bots/api#keyboardbutton
     str
     | bool
     | KeyboardButtonPollType
