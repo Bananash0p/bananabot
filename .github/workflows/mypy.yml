@@ -1,4 +1,4 @@
-name: ruff
+name: mypy
 'on':
   push:
     branches:
@@ -7,7 +7,7 @@ name: ruff
     branches:
       - master
 jobs:
-  ruff:
+  mypy:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
