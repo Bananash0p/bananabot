@@ -1,5 +1,5 @@
 from types import MappingProxyType
-from typing import TypeVar, TypeAlias
+from typing import TypeAlias, TypeVar
 
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import (
