@@ -7,7 +7,7 @@ name: ruff
     branches:
       - master
 jobs:
-  flake8:
+  ruff:
     timeout-minutes: 15
     runs-on: ubuntu-24.04
     steps:
