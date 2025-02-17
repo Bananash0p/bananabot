@@ -13,7 +13,7 @@ class SingleQueryResult:
         return self._data
 
     def convert(self, model: type[T]) -> T | None:
-        return model(**self.data) if self._data else None
+        return model(**self.data) if self._data else None  # type: ignore
 
 
 class MultipleQueryResults:

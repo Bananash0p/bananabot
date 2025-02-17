@@ -1,6 +1,5 @@
 from aiogram import html, types
 from aiogram.fsm.context import FSMContext
-
 from aiogram_bot_template import states
 
 

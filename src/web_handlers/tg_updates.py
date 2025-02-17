@@ -1,12 +1,11 @@
 import secrets
-from typing import Any, TYPE_CHECKING
+from typing import TYPE_CHECKING, Any
 
 import aiohttp.web
 import orjson
 from aiogram import Bot, Dispatcher, types
-from aiohttp import web
-
 from aiogram_bot_template.data import config
+from aiohttp import web
 
 if TYPE_CHECKING:
     import aiojobs
@@ -20,7 +19,6 @@ async def process_update(
     dp: Dispatcher,
     workflow_data: dict[str, Any],
 ) -> None:
-
     await dp.feed_webhook_update(bot, upd, **workflow_data)
 
 
