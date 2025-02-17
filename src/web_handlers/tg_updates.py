@@ -20,7 +20,6 @@ async def process_update(
     dp: Dispatcher,
     workflow_data: dict[str, Any],
 ) -> None:
-
     await dp.feed_webhook_update(bot, upd, **workflow_data)
 
 

@@ -49,7 +49,6 @@ def rename_app_folder(
     old_folder_name: str,
     new_folder_name: str,
 ) -> None:
-
     old_folder = project_dir / old_folder_name
     new_folder = project_dir / new_folder_name
     if new_folder.exists():
