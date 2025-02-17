@@ -1,5 +1,5 @@
 from types import MappingProxyType
-from typing import TypeVar
+from typing import TypeVar, TypeAlias
 
 from aiogram.filters.callback_data import CallbackData
 from aiogram.types import (
@@ -15,7 +15,7 @@ from aiogram_bot_template.keyboards.keyboard_utils import schema_generator
 
 A = TypeVar("A", bound=type[CallbackData])
 
-POSSIBLE_BUTTON_PROPERTIES_VALUES = (  # https://core.telegram.org/bots/api#inlinekeyboardbutton
+POSSIBLE_BUTTON_PROPERTIES_VALUES: TypeAlias = (  # https://core.telegram.org/bots/api#inlinekeyboardbutton
     str
     | WebAppInfo
     | LoginUrl
