@@ -1,5 +1,5 @@
 from collections.abc import Sequence
-from types import MappingProxyType, 
+from types import MappingProxyType
 from typing import TypeAlias
 
 from aiogram.types import (
