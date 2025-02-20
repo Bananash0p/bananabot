@@ -2,7 +2,11 @@ import subprocess  # noqa: S404
 
 from environs import Env
 
-VERSION = "1.0.0"
+VERSION = (
+    subprocess.check_output(["git", "describe", "--always"])  # noqa: S603,S607
+    .strip()
+    .decode()
+)
 
 env = Env()
 env.read_env()
