@@ -1,4 +1,4 @@
-from aiogram import types
+from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
 from aiogram.utils.keyboard import InlineKeyboardBuilder
 
@@ -29,8 +29,8 @@ async def create_keyboard(state: FSMContext):
     return builder.as_markup()
 
 
-# Обработчик кнопки "🔙Назад"
-async def go_back(callback: types.CallbackQuery, state: FSMContext) -> None:
+# Обработчик  "🔙Назад"
+async def go_back(callback: CallbackQuery, state: FSMContext) -> None:
     current_state = await state.get_state()
 
     match current_state:
@@ -41,7 +41,7 @@ async def go_back(callback: types.CallbackQuery, state: FSMContext) -> None:
 
 
 # Обработчик /start
-async def start(data: types.Message | types.CallbackQuery, state: FSMContext):
+async def start(data: Message | CallbackQuery, state: FSMContext):
     current_state = await state.get_state()
     await state.set_state(states.user.Menu.main)
     
@@ -70,7 +70,7 @@ async def start(data: types.Message | types.CallbackQuery, state: FSMContext):
 
 
 # Обработчик кнопки "🛜Прокси"
-async def show_bananas(callback: types.CallbackQuery, state: FSMContext) -> None:
+async def show_bananas(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.bananas)
 
     data = await state.get_data()
@@ -87,7 +87,7 @@ async def show_bananas(callback: types.CallbackQuery, state: FSMContext) -> None
 
 
 # Обработчик кнопки "🗿Static"
-async def show_static(callback: types.CallbackQuery, state: FSMContext) -> None:
+async def show_static(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.static)
 
     data = await state.get_data()
@@ -104,7 +104,7 @@ async def show_static(callback: types.CallbackQuery, state: FSMContext) -> None:
 
 
 # Обработчик кнопки "🏡Residential"
-async def show_resedential(callback: types.CallbackQuery, state: FSMContext) -> None:
+async def show_resedential(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.resedential)
 
     data = await state.get_data()
@@ -121,8 +121,8 @@ async def show_resedential(callback: types.CallbackQuery, state: FSMContext) -> 
 
 
 # Обработчик кнопки "☎️Mobile"
-async def show_mobile(callback: types.CallbackQuery, state: FSMContext) -> None:
-    await state.set_state(states.user.Menu.mobile)
+async def show_mobile(callback: CallbackQuery, state: FSMContext) -> None:
+    await state.set_state(states.user.Menu.static)
 
     data = await state.get_data()
     message_id = data.get('message_id')

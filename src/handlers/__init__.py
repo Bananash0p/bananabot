@@ -1,9 +1,10 @@
 from aiogram import Router, F
 from aiogram.filters import CommandStart
 from src import states
-from src.filters import ChatTypeFilter, TextFilter
+from src.filters import ChatTypeFilter
 
 from . import menu
+from . import transaction
 
 
 def prepare_router() -> Router:
@@ -18,8 +19,9 @@ def prepare_router() -> Router:
     router.callback_query.register(menu.show_static, F.data == "static")
     router.callback_query.register(menu.show_resedential, F.data == "residential")
     router.callback_query.register(menu.go_back, F.data == "return")
+    router.callback_query.register(transaction.buy_proxy, F.data == "buy")
 
     # Регистрация транзакций
-    # СКОРО БУДЕТ!
+    router.message.register(transaction.give_proxy, states.user.Transaction.proxy)
     
     return router
