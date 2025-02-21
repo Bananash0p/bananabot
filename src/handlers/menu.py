@@ -21,7 +21,11 @@ async def create_keyboard(state: FSMContext) -> InlineKeyboardMarkup:
             builder.button(text="☎️Mobile", callback_data="residential")
             builder.button(text="🔙 Назад", callback_data="return")
             builder.adjust(3, 1)
-        case states.user.Menu.static | states.user.Menu.resedential | states.user.Menu.mobile:
+        case (
+            states.user.Menu.static
+            | states.user.Menu.resedential
+            | states.user.Menu.mobile
+        ):
             builder.button(text="💵Купить", callback_data="buy")
             builder.button(text="🔙 Назад", callback_data="return")
             builder.adjust(1)
@@ -36,7 +40,11 @@ async def go_back(callback: CallbackQuery, state: FSMContext) -> None:
     match current_state:
         case states.user.Menu.bananas:
             await start(callback.message, state)
-        case states.user.Menu.static | states.user.Menu.resedential | states.user.Menu.mobile:
+        case (
+            states.user.Menu.static
+            | states.user.Menu.resedential
+            | states.user.Menu.mobile
+        ):
             await show_bananas(callback, state)
 
 
@@ -44,14 +52,14 @@ async def go_back(callback: CallbackQuery, state: FSMContext) -> None:
 async def start(data: Message | CallbackQuery, state: FSMContext) -> None:
     current_state = await state.get_state()
     await state.set_state(states.user.Menu.main)
-    
+
     png_url = "https://gold-quickest-bird-528.mypinata.cloud/ipfs/bafkreie3xabthu6wiac7huqzunojalgivxeni3rwqoabbrnfwmu4maynqu"
     keyboard = await create_keyboard(state)
-    
+
     if current_state == states.user.Menu.bananas:
         state_data = await state.get_data()
         message_id = state_data.get("message_id")
-        
+
         await data.bot.edit_message_caption(
             chat_id=data.chat.id,
             message_id=message_id,
@@ -66,7 +74,10 @@ async def start(data: Message | CallbackQuery, state: FSMContext) -> None:
             reply_markup=keyboard,
             parse_mode="HTML",
         )
-        await state.update_data(message_id=sent_message.message_id, chat_id=data.chat.id)
+
+        await state.update_data(
+            message_id=sent_message.message_id, chat_id=data.chat.id
+        )
 
 
 # Обработчик кнопки "🛜Прокси"
@@ -135,6 +146,3 @@ async def show_mobile(callback: CallbackQuery, state: FSMContext) -> None:
         reply_markup=keyboard,
         parse_mode="HTML",
     )
-
-
-

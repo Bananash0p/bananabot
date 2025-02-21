@@ -20,6 +20,4 @@ def prepare_router() -> Router:
     router.callback_query.register(menu.go_back, F.data == "return")
     router.callback_query.register(transaction.buy_proxy, F.data == "buy")
 
-    # Регистрация транзакций
-    
     return router

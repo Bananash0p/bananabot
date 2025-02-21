@@ -19,6 +19,3 @@ async def buy_proxy(callback: CallbackQuery, state: FSMContext) -> None:
 
 
 # Обработчик выдачи прокси
-
-
-
