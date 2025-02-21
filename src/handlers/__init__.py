@@ -1,6 +1,5 @@
 from aiogram import Router, F
 from aiogram.filters import CommandStart
-from src import states
 from src.filters import ChatTypeFilter
 
 from . import menu
@@ -22,6 +21,5 @@ def prepare_router() -> Router:
     router.callback_query.register(transaction.buy_proxy, F.data == "buy")
 
     # Регистрация транзакций
-    router.message.register(transaction.give_proxy, states.user.Transaction.proxy)
     
     return router
