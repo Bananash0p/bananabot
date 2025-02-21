@@ -80,7 +80,7 @@ async def show_bananas(callback: CallbackQuery, state: FSMContext) -> None:
     await callback.bot.edit_message_caption(
         chat_id=callback.message.chat.id,
         message_id=message_id,
-        caption="<b>🍌Каталог</b>\n\nВыберите сорт:",
+        caption="<b>🍌Каталог</b>\n\nВыберите сорт:",  # noqa: RUF001
         reply_markup=keyboard,
         parse_mode="HTML",
     )
@@ -97,7 +97,7 @@ async def show_static(callback: CallbackQuery, state: FSMContext) -> None:
     await callback.bot.edit_message_caption(
         chat_id=callback.message.chat.id,
         message_id=message_id,
-        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
+        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",  # noqa: RUF001
         reply_markup=keyboard,
         parse_mode="HTML",
     )
@@ -114,7 +114,7 @@ async def show_resedential(callback: CallbackQuery, state: FSMContext) -> None:
     await callback.bot.edit_message_caption(
         chat_id=callback.message.chat.id,
         message_id=message_id,
-        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
+        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",  # noqa: RUF001
         reply_markup=keyboard,
         parse_mode="HTML",
     )
@@ -131,7 +131,7 @@ async def show_mobile(callback: CallbackQuery, state: FSMContext) -> None:
     await callback.bot.edit_message_caption(
         chat_id=callback.message.chat.id,
         message_id=message_id,
-        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
+        caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",  # noqa: RUF001
         reply_markup=keyboard,
         parse_mode="HTML",
     )
