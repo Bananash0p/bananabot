@@ -1,12 +1,13 @@
 from datetime import datetime, timedelta
+
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
-from models import Base, User, Order, Proxy
+from models import Base, Order, Proxy, User
 
 
 class DatabaseAPI:
-    def __init__(self, db_url='sqlite:///db.sqlite3'):
+    def __init__(self, db_url="sqlite:///db.sqlite3"):
         self.engine = create_engine(db_url, echo=True)
         Base.metadata.create_all(self.engine)
         self.Session = sessionmaker(bind=self.engine)
@@ -54,11 +55,11 @@ class DatabaseAPI:
             proxies = []
             for data in proxy_data:
                 proxy = Proxy(
-                    ip=data['ip'],
-                    port=data['port'],
-                    protocol=data['protocol'],
-                    price=data['price'],
-                    is_assigned=data.get('is_assigned', False)
+                    ip=data["ip"],
+                    port=data["port"],
+                    protocol=data["protocol"],
+                    price=data["price"],
+                    is_assigned=data.get("is_assigned", False),
                 )
                 session.add(proxy)
                 proxies.append(proxy)
@@ -85,7 +86,7 @@ class DatabaseAPI:
             
             proxies = session.query(Proxy).filter(
                 Proxy.id.in_(proxy_ids),
-                Proxy.is_assigned == False
+                Proxy.is_assigned == False,
             ).with_for_update().all()
             
             if len(proxies) != len(proxy_ids):
