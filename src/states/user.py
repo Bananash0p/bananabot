@@ -8,6 +8,7 @@ class Menu(StatesGroup):
     resedential = State()
     mobile = State()
 
+
 class Transaction(StatesGroup):
     buy = State()
     proxy = State()

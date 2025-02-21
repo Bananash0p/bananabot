@@ -1,9 +1,8 @@
-import requests
-
 from aiogram.types import Message, CallbackQuery, BufferedInputFile
 from aiogram.fsm.context import FSMContext
 
 from src import states
+
 
 # Обработчик кнопки "💵Купить"
 async def buy_proxy(callback: CallbackQuery, state: FSMContext) -> None:
@@ -20,11 +19,11 @@ async def buy_proxy(callback: CallbackQuery, state: FSMContext) -> None:
 
 
 # Обработчик выдачи прокси
-async def give_proxy(message: Message, state: FSMContext) -> None:
-    txt_url = "https://gold-quickest-bird-528.mypinata.cloud/ipfs/bafkreicyxuugcprdyahk7net7mehmlm3yisosuc5enxhske74qigffnaey"
-    response = requests.get(txt_url)
-    document = BufferedInputFile(response.content, filename="proxies.txt")
+# async def give_proxy(message: Message, state: FSMContext) -> None:
+#     txt_url = "https://gold-quickest-bird-528.mypinata.cloud/ipfs/bafkreicyxuugcprdyahk7net7mehmlm3yisosuc5enxhske74qigffnaey"
+#     response = requests.get(txt_url)
+#     document = BufferedInputFile(response.content, filename="proxies.txt")
 
-    await message.answer_document(document=document)
+#     await message.answer_document(document=document)
 
 

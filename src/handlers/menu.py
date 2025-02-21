@@ -5,7 +5,7 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from src import states
 
 
-async def create_keyboard(state: FSMContext):
+async def create_keyboard(state: FSMContext) -> InlineKeyboardMarkup:
     builder = InlineKeyboardBuilder()
 
     current_state = await state.get_state()
@@ -41,7 +41,7 @@ async def go_back(callback: CallbackQuery, state: FSMContext) -> None:
 
 
 # Обработчик /start
-async def start(data: Message | CallbackQuery, state: FSMContext):
+async def start(data: Message | CallbackQuery, state: FSMContext) -> None:
     current_state = await state.get_state()
     await state.set_state(states.user.Menu.main)
     
@@ -50,21 +50,21 @@ async def start(data: Message | CallbackQuery, state: FSMContext):
     
     if current_state == states.user.Menu.bananas:
         state_data = await state.get_data()
-        message_id = state_data.get('message_id')
+        message_id = state_data.get("message_id")
         
         await data.bot.edit_message_caption(
             chat_id=data.chat.id,
             message_id=message_id,
             caption="<b>🍌BANANA SHOP -</b> Ваш ЛУЧШИЙ поставщий прокси!",
             reply_markup=keyboard,
-            parse_mode="HTML"
+            parse_mode="HTML",
         )
     else:
         sent_message = await data.answer_photo(
             png_url,
             caption="<b>🍌BANANA SHOP -</b> Ваш ЛУЧШИЙ поставщий прокси!",
             reply_markup=keyboard,
-            parse_mode="HTML"
+            parse_mode="HTML",
         )
         await state.update_data(message_id=sent_message.message_id, chat_id=data.chat.id)
 
@@ -74,7 +74,7 @@ async def show_bananas(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.bananas)
 
     data = await state.get_data()
-    message_id = data.get('message_id')
+    message_id = data.get("message_id")
     keyboard = await create_keyboard(state)
 
     await callback.bot.edit_message_caption(
@@ -82,7 +82,7 @@ async def show_bananas(callback: CallbackQuery, state: FSMContext) -> None:
         message_id=message_id,
         caption="<b>🍌Каталог</b>\n\nВыберите сорт:",
         reply_markup=keyboard,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 
@@ -91,7 +91,7 @@ async def show_static(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.static)
 
     data = await state.get_data()
-    message_id = data.get('message_id')
+    message_id = data.get("message_id")
     keyboard = await create_keyboard(state)
 
     await callback.bot.edit_message_caption(
@@ -99,7 +99,7 @@ async def show_static(callback: CallbackQuery, state: FSMContext) -> None:
         message_id=message_id,
         caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
         reply_markup=keyboard,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 
@@ -108,7 +108,7 @@ async def show_resedential(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.resedential)
 
     data = await state.get_data()
-    message_id = data.get('message_id')
+    message_id = data.get("message_id")
     keyboard = await create_keyboard(state)
 
     await callback.bot.edit_message_caption(
@@ -116,7 +116,7 @@ async def show_resedential(callback: CallbackQuery, state: FSMContext) -> None:
         message_id=message_id,
         caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
         reply_markup=keyboard,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 
@@ -125,7 +125,7 @@ async def show_mobile(callback: CallbackQuery, state: FSMContext) -> None:
     await state.set_state(states.user.Menu.static)
 
     data = await state.get_data()
-    message_id = data.get('message_id')
+    message_id = data.get("message_id")
     keyboard = await create_keyboard(state)
 
     await callback.bot.edit_message_caption(
@@ -133,7 +133,7 @@ async def show_mobile(callback: CallbackQuery, state: FSMContext) -> None:
         message_id=message_id,
         caption="<b>🍌О банане</b>\n\n• Протокол: HTTPS🔒/ SOCKS5🛡️\n• Скорость: 100 Мбит/с⚡\n• Формат: IPv4\n• Цена: Договоримся🤝",
         reply_markup=keyboard,
-        parse_mode="HTML"
+        parse_mode="HTML",
     )
 
 
