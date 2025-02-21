@@ -8,11 +8,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.client.telegram import TelegramAPIServer
 from aiogram.fsm.storage.redis import DefaultKeyBuilder, RedisStorage
-from aiogram_bot_template import handlers, utils, web_handlers
-from aiogram_bot_template.data import config
-from aiogram_bot_template.middlewares import StructLoggingMiddleware
 from aiohttp import web
 from redis.asyncio import Redis
+
+from src import handlers, utils, web_handlers
+from src.data import config
+from src.middlewares import StructLoggingMiddleware
 
 if TYPE_CHECKING:
     import asyncpg as asyncpg
@@ -90,7 +91,7 @@ async def close_db_connections(dp: Dispatcher) -> None:
 
 
 def setup_handlers(dp: Dispatcher) -> None:
-    dp.include_router(handlers.user.prepare_router())
+    dp.include_router(handlers.prepare_router())
 
 
 def setup_middlewares(dp: Dispatcher) -> None:

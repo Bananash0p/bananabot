@@ -9,7 +9,7 @@ select = [
     "RSE", "RET", "SLF", "SLOT", "TID", "TCH", "INT", "ARG", "PTH", "TD", "FIX", "ERA",
     "PLC", "PLE", "PLW", "TRY", "FLY", "NPY", "AIR", "PERF", "FURB", "LOG", "RUF"
 ]
-ignore = ["E501", "ANN101", "ANN401", "RET504", "PLC0414", "SIM108"]
+ignore = ["ANN401", "COM812", "E501", "PLC0414", "RET504", "SIM108"]
 unfixable = ["B"]
 
 [tool.ruff.format]

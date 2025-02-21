@@ -1,4 +1,4 @@
-from aiogram.filters import BaseFilter
+from aiogram.filters import BaseFilter, Filter
 from aiogram.types import CallbackQuery, Message
 
 
@@ -16,3 +16,8 @@ class TextFilter(BaseFilter):
         if isinstance(obj, CallbackQuery):
             return obj.data in self.text
         return False
+
+
+class ProxyTypeFilter(Filter):
+    async def __call__(self, callback_query: CallbackQuery) -> bool:
+        return callback_query.data in {"static", "residential", "mobile"}
