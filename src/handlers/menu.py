@@ -1,5 +1,5 @@
-from aiogram.types import Message, CallbackQuery
 from aiogram.fsm.context import FSMContext
+from aiogram.types import CallbackQuery, Message
 from aiogram.utils.keyboard import InlineKeyboardBuilder, InlineKeyboardMarkup
 
 from src import states

@@ -10,6 +10,7 @@ from aiogram.types import (
     SwitchInlineQueryChosenChat,
     WebAppInfo,
 )
+
 from src import exceptions
 from src.keyboards.keyboard_utils import schema_generator
 

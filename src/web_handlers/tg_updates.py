@@ -4,8 +4,9 @@ from typing import TYPE_CHECKING, Any
 import aiohttp.web
 import orjson
 from aiogram import Bot, Dispatcher, types
-from src.data import config
 from aiohttp import web
+
+from src.data import config
 
 if TYPE_CHECKING:
     import aiojobs

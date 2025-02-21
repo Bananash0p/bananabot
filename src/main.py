@@ -8,11 +8,12 @@ from aiogram import Bot, Dispatcher
 from aiogram.client.default import DefaultBotProperties
 from aiogram.client.telegram import TelegramAPIServer
 from aiogram.fsm.storage.redis import DefaultKeyBuilder, RedisStorage
+from aiohttp import web
+from redis.asyncio import Redis
+
 from src import handlers, utils, web_handlers
 from src.data import config
 from src.middlewares import StructLoggingMiddleware
-from aiohttp import web
-from redis.asyncio import Redis
 
 if TYPE_CHECKING:
     import asyncpg as asyncpg

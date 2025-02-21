@@ -2,6 +2,7 @@ import logging
 import sys
 
 import structlog
+
 from src import models
 from src.data import config
 

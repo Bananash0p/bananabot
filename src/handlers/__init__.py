@@ -1,9 +1,9 @@
-from aiogram import Router, F
+from aiogram import F, Router
 from aiogram.filters import CommandStart
+
 from src.filters import ChatTypeFilter
 
-from . import menu
-from . import transaction
+from . import menu, transaction
 
 
 def prepare_router() -> Router:
